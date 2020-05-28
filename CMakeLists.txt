@@ -15,8 +15,9 @@ set(PROJECT_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT
 
 set(custom_compiler_flags)
 
+set(CMAKE_MACOSX_RPATH 1)
 include(CheckCCompilerFlag)
-option(ENABLE_CUSTOM_COMPILER_FLAGS "Enables custom compiler flags" ON)
+option(ENABLE_CUSTOM_COMPILER_FLAGS "Enables custom compiler flags" OFF)
 if (ENABLE_CUSTOM_COMPILER_FLAGS)
     if (("${CMAKE_C_COMPILER_ID}" STREQUAL "Clang") OR ("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU"))
         list(APPEND custom_compiler_flags

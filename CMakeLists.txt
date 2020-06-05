@@ -112,7 +112,7 @@ endforeach()
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${supported_compiler_flags}")
 
-option(BUILD_SHARED_LIBS "Build shared libraries" ON)
+option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 option(ENABLE_TARGET_EXPORT "Enable exporting of CMake targets. Disable when it causes problems!" ON)
 
 #cJSON
@@ -121,9 +121,10 @@ set(CJSON_LIB cjson)
 file(GLOB HEADERS cJSON.h)
 set(SOURCES cJSON.c)
 
-option(BUILD_SHARED_AND_STATIC_LIBS "Build both shared and static libraries" Off)
+option(BUILD_SHARED_AND_STATIC_LIBS "Build both shared and static libraries"
+	OFF)
 option(CJSON_OVERRIDE_BUILD_SHARED_LIBS "Override BUILD_SHARED_LIBS with CJSON_BUILD_SHARED_LIBS" OFF)
-option(CJSON_BUILD_SHARED_LIBS "Overrides BUILD_SHARED_LIBS if CJSON_OVERRIDE_BUILD_SHARED_LIBS is enabled" ON)
+option(CJSON_BUILD_SHARED_LIBS "Overrides BUILD_SHARED_LIBS if CJSON_OVERRIDE_BUILD_SHARED_LIBS is enabled" OFF)
 
 if ((CJSON_OVERRIDE_BUILD_SHARED_LIBS AND CJSON_BUILD_SHARED_LIBS) OR ((NOT CJSON_OVERRIDE_BUILD_SHARED_LIBS) AND BUILD_SHARED_LIBS))
     set(CJSON_LIBRARY_TYPE SHARED)
